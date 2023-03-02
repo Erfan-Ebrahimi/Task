@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+import {Stack } from '@mui/material';
+import { Routes , Route } from 'react-router-dom';
 import './App.css';
+import Form from './components/Details/Form/Form';
+import Plan from './components/Details/plan/Plan';
+import Menu from './components/Menu/Menu';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Stack className="App" sx={{
+      display:'flex',
+      flexDirection:{xs:'column',md:'row'}
+    }} >
+      <Menu/>
+        <Routes>
+          <Route path='/' element={<Form/>}/>
+          <Route path='/plan' element={<Plan/>}/>
+        </Routes>
+    </Stack>
   );
 }
 
